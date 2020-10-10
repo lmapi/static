@@ -1,0 +1,125 @@
+@import url("../common/common.css");
+iframe::-webkit-scrollbar {display: none;}
+iframe{width: 100vw;height: 120vh;margin-top: -35px}
+
+body{margin: 0 auto;}
+
+li{cursor: pointer;}
+
+
+nav{color: #fff;background-image: linear-gradient(to right, #f5b006 , #ed701a);border-bottom: 0}
+h1{text-align: center;}
+main{background: #f3f3f3;min-height:100vh;padding-top:0 ;}
+
+dl dd{display: flex;flex-flow: row wrap;justify-content: space-between;background: #fff;border-radius: .25rem;padding: .25rem}
+dl dt{width: 100%;padding: .25rem}
+dl dt a{float: right;color:#DD9536; }
+dl dd a{margin-bottom: .25rem;text-align: center;}
+dl img{width: 2.25rem;height: 2.25rem;border-radius: .2rem;}
+
+article{background: #fff;
+    font-size: .3rem;
+    line-height: 1.75;
+    padding: 1.2rem .2rem .2rem;text-indent: 2em;}
+article h1{text-indent: 0;line-height: 1.25;margin-bottom: .25rem;}
+article img{max-width:80% ;display: block;margin: .2rem auto;border-radius: .2rem;}
+article iframe{width: auto;height: auto;margin: auto;}
+form{ min-width: 75%; display: flex;flex-flow: column;background: #fff;border-radius: .15rem; }
+form>*{font-size: .2rem;margin: .25rem;border-radius: .15rem;line-height: .75rem;min-width: 150px;text-align: center;}
+form>input,form>select{appearance: none;height: .75rem;padding-left: .2rem;background: #f1f1f1;color: #666;text-align: left;}
+form>button{border: 0;background: #ed701a;height: .75rem;color: #fff;}
+form>p{display: flex;justify-content: space-between;}
+@keyframes tada {
+    0% {transform: scale(1);}
+    10%, 20% {transform: scale(0.9) rotate(-3deg);}
+    30%, 50%, 70%, 90% {transform: scale(1.1) rotate(3deg);}
+    40%, 60%, 80% {transform: scale(1.1) rotate(-3deg);}
+    100% {transform: scale(1) rotate(0);}
+}
+/*首页*/
+#home{text-align: center;}
+#home>img{width: 7.1rem;}
+.banner{margin-top: 0rem;padding-top: 1rem;}
+.banner a{padding: .2rem;}
+.banner img{max-width: 750px;height: 4rem;border-radius: .2rem }
+
+.nav{display: flex;flex-flow: row wrap;justify-content: space-between;padding: .1rem;}
+.nav li{width: 25%;padding: .1rem;text-align: center;}
+.nav li img{width: 90%;margin-bottom: .1rem}
+
+.lq{position: relative;width: 100%;height: 2.5rem;display: block;overflow: hidden;}
+.lq img{max-width: 100%;}
+.lq-go{
+    display: block;
+    position: absolute;
+    left: 2.25rem;
+    top:1.5rem;
+    width: 3rem;
+    animation: tada 1s infinite;
+    animation-delay: .1s;
+}
+
+.bm{background-image: linear-gradient(to right, #f5b006 , #ed701a);padding: .5rem;margin: .2rem;color: #fff;border-radius: .2rem;}
+.bm h1{font-size: .35rem;margin-bottom: .5rem}
+.bm h2{color: red}
+
+
+/*选项卡*/
+.tabs>.content>li {display: none;}
+.tabs li.active{display: block;}
+
+
+.list{padding:.1rem;display: flex;flex-flow: row wrap;}
+.list h1{width: 100%}
+.list li{width: 50%;padding: .1rem;}
+.list img{width: 100%;border-radius: .2rem;}
+.list h1{font-size: .35rem;line-height: 2;font-weight: bold;}
+.list p{padding-top: .1rem}
+
+
+/*专业设置*/
+.course{padding-top: 1.2rem}
+/*精彩视频*/
+.video{padding-top: 1.2rem}
+.video img{height: 2.5rem}
+/*教师团队*/
+.teacher{padding-top: 1.2rem}
+.teacher img{height: 5rem}
+
+/*校园环境*/
+.campus{margin-top: 1.2rem;}
+.campus img{height: 3rem}
+.campus>.tab{display: flex;justify-content: center;}
+.campus>.tab li{background:#ed701a;padding: .2rem;margin: .1rem;color: #fff;border-radius: .1rem}
+.campus>.tab li.active{background: #f5b006}
+
+/*教学成果*/
+.result{margin-top: 1.2rem;}
+.result img{height: 3rem}
+.result>.tab{display: flex;justify-content: center;padding: 0 .1rem}
+.result>.tab li{text-align: center;background:#ed701a;padding: .2rem;margin: .1rem;color: #fff;border-radius: .1rem}
+.result>.tab li.active{background: #f5b006}
+
+/*网站导航*/
+.category>.tab{width: 22.5%;padding-top: 1.2rem;float: left;}
+.category>.tab>li{
+    color: #444;
+    background: #fff;
+    display: block;
+    font-size: .3rem;
+    font-weight: 400;
+    line-height: 1rem;
+    text-align: center;
+}
+.category>.tab>li.active{color: #DD9536;font-weight: 500;background: #f3f3f3}
+
+.category>.content{width: 77.5%;padding: 1.2rem .25rem 1rem;float: right;overflow: hidden;position: relative;}
+.category>.content:after{bottom: 0rem;
+    color: #9b9b9b;
+    content: "\2014\2014 \6682\65E0\66F4\591A \2014\2014";
+    font-size: .3rem;
+    left: 0;
+    line-height: .925926rem;
+    position: absolute;
+    text-align: center;
+    width: 100%;}

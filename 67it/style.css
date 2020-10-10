@@ -1,0 +1,33 @@
+*{padding: 0;margin: 0;border: 0;font-family:微软雅黑;}
+a{outline: none;text-decoration: none;}
+#header{background:#0090fd;border-bottom: 1px solid #ccc}
+#header .site{width: 30%;float: left;}
+#header .site h1{color: #fff;height: 100px;line-height: 100px;}
+#header .head,.box{width:1200px;margin: 0 auto;clear: both;overflow: hidden;position: relative;}
+#header .nav{float: right;height: 50px;width:65%;overflow: hidden;margin-top: 25px;}
+#header .nav a{display: inline-block;color: #fff;height: 50px;line-height: 50px;padding: 0 30px;border-radius: 15px;}
+#header .nav a:hover,#header .nav a.cur{color: #0090fd;background: #fff}
+#top{background:#0090fd; }
+
+#top .ab{float: left;width: 40%;margin-top: 80px;}
+#top .ab h1{color: #fff;line-height:80px; }
+#top .ab p{color: #fff;line-height: 35px;}
+#top .ab a{margin-top:50px ;color: #0090fd;background:#fff;display:inline-block;height: 40px;line-height: 40px;border-radius: 20px;padding: 0 30px;}
+#top img{float: right;}
+
+.content {padding: 35px 0;}
+.content h1{color: #0090fd;line-height: 50px;}
+.content h1 span{color: #ccc;font-weight: 400;padding-left: 15px;}
+.content p{text-indent: 2em;line-height:38px;color: #666;font-size: 17px; }
+.content h3{line-height: 30px;color: #ddd;font-weight: 400}
+.content div a{color: #666;text-align: center;margin: 0 auto;}
+
+
+.content2 {padding: 50px 0;}
+.content2 h1{color: #fff;line-height: 50px;}
+.content2 h1 span{color: #ccc;font-weight: 400;padding-left: 15px;}
+.content2 p{text-indent: 2em;line-height:38px;color: #666;font-size: 17px; }
+.content2 .yw span{display: block;background: #fff;height: 150px;width: 25%;float: left;}
+
+.lx{background: #999}
+

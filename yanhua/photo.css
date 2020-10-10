@@ -1,0 +1,72 @@
+
+@import url("common.css");
+
+
+main{padding: 1rem .2rem 0 .2rem }
+img{border-radius: .1rem;}
+#sh{border: 1px solid #F77;border-radius: .1rem;display: flex;overflow:hidden;}
+#sh>*{padding: .1rem .2rem;font-size: .2rem;}
+#sh>h3{background: #F77;color: #fff;}
+#sh>a{background: #fff;color: #F77;}
+
+
+#pager{margin-bottom: .2rem;display: flex;justify-content: center;align-items: center;background: #fff;width: 100%;}
+#pager li{border: 1px solid #eee;
+    padding: .1rem .2rem;
+    border-radius: .1rem;
+    margin: 0 .1rem;}
+
+
+.banner img{width: 7.1rem;}
+.more{color: #F77;line-height: .6rem;align-items: center; border-bottom: 1px solid #F77;display: flex;flex-flow: row;justify-content: space-between;}
+/*.more>h1{background: #F77;color: #fff;font-size: 14px;padding: 5px 10px;border-radius: 5px 5px 0 0;}*/
+
+
+
+.gifs{margin:.2rem 0;}
+.gifs a p{text-align: center;font-size: .2rem;line-height: 3;font-weight: bold;}
+.gifs img{width: 100%;}
+
+.photo {}
+.photo>h1{text-align: center;font-size: .35rem;line-height: 1.5;padding: .1rem 0;font-weight: bold;}
+.photo img{width: 100%;margin-bottom: .2rem;border-radius: .05rem}
+.photo .desc{line-height: 2;text-indent: 2em;background: #eee;margin: .2rem auto;padding: 0 .1rem;color: #999;}
+.photo .info{text-align: center;color: #f77}
+.photo .info>span{padding:.1rem;}
+.category{display: flex;flex-flow: row wrap;margin: .1rem -.1rem;}
+
+.category a{padding: .1rem;width: 20%;text-align: center;}
+.category img{width: 100%;border-radius: .1rem;}
+
+.tags{display: flex;flex-flow: row wrap;justify-content: space-between;}
+.tags a{border: 1px solid #eee;border-radius: .1rem;padding: .1rem;margin: .1rem;color: #999;}
+
+#menu{top:1rem;z-index: 15;width: 100%;max-width: 750px;position: fixed;height: 100vh;background: rgba(0,0,0,.75);}
+#menu>div{display: flex;background: #fff;justify-content: space-around;padding: .2rem;}
+#menu>div>a>i{color: #f77;font-size: .6rem;}
+#menu>div>a>p{line-height: .4rem;color: #999}
+#menu>div>a{text-align: center;}
+
+
+#register{text-align: center;}
+#register>*{margin-top: .1rem;}
+#register a{color: #59a4df;display: inline-block;}
+#register p{font-size: .35rem;}
+#register li{border-bottom: 1px solid #eee;display: flex;align-items: center;margin-bottom: .2rem}
+#register input{background: none;border: none;height: .75rem;display: block;-webkit-box-flex: 1;font-size:.3rem;color: #333;flex: 1}
+#register i{font-size: .35rem;}
+
+#play{color: red;}
+
+#notice{position: fixed;color: red;top: 1rem;width: 100%;max-width: 750px; background: #fff;padding: .2rem;font-size: .2rem}*/
+
+#player{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 750px;
+    height: 100%;
+}
+
+#movie .list a img {height:2rem}

@@ -1,0 +1,480 @@
+
+html{
+	background-color: #eee; 
+}
+body{
+    margin: 0;
+    font: 12px/1.14 "PingFang SC","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei","Helvetica Neue",Arial,sans-serif;
+}
+h1,h2,h3,h4,h5,h6 {
+    font-weight: 400
+}
+
+blockquote,button,dd,div,dl,dt,form,h1,h2,h3,h4,h5,h6,input,li,ol,p,pre,td,textarea,th,ul {
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0,0,0,0)
+}
+
+a:active,a:hover {
+    outline: 0
+}
+
+img {
+    border: none
+}
+
+li {
+    list-style: none
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+h4,h5,h6 {
+    font-size: 100%
+}
+
+button,input,optgroup,option,select,textarea {
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    outline: 0
+}
+
+pre {
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word
+}
+
+hr {
+    height: 1px;
+    margin: 10px 0;
+    border: 0;
+    clear: both
+}
+
+a {
+    color: #333;
+    text-decoration: none
+}
+
+a:hover {
+    color: #777
+}
+
+a cite {
+    font-style: normal;
+    *cursor: pointer
+}
+
+
+ul, menu, dir {
+    display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 0px;
+}
+header{
+    background-color: #333;
+    width: 100%;
+    height: 35px;
+}
+
+header ul{
+    float: right;
+}
+
+header ul li{
+    display: inline-block;
+}
+
+header ul li a{
+    display: block;
+    height: 35px;
+    color: #ccc;
+    line-height: 35px;
+    padding: 0 10px;
+}
+header ul li a img{
+    width: 40px;
+    padding-right: 10px;
+}
+header ul li a:hover,header ul li.this a{
+    background-color: #2ea039;
+    color: #eee;
+}
+
+header .container{
+    padding:0;
+}
+.container{
+    width: 1170px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 10px 10px 20px 10px;
+}
+
+.channel{
+    width: 120px;
+    /*overflow: hidden;*/
+    position: fixed;
+    top:0px;
+    z-index: 999;
+    background-color: #f4f5f6;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #2ea039;
+}
+
+.content{
+    width: 660px;
+    padding:0 15px 0 140px; 
+    float: left;
+    background: #fff;
+}
+
+.modules{
+    width: 340px;
+    float: right;
+}
+
+.channel #logo a{
+    background-color: #2ea039;
+    color: #fff;
+    width: 140px;
+    letter-spacing:5px;
+    font-size: 19px;
+    height: 70px;
+    line-height: 70px;
+    border-top: 1px solid #aaa;
+    margin-left: -10px; 
+}
+.channel #logo a:after{
+    content: '';
+    width:0; 
+    height:0;
+    border-width:5px;
+    border-style:solid;
+    border-color:#ccc transparent  transparent #ccc  ;
+    position: absolute;
+    bottom: -10px;
+    right: 0
+}
+.channel #logo a:before{
+    content: '';
+    width:0; 
+    height:0;
+    border-width:5px;
+    border-style:solid;
+    border-color:  #ccc   #ccc transparent transparent  ;
+    position: absolute;
+    bottom: -10px;
+    left:  0
+}
+
+.channel li{
+
+}
+.channel li a{
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    color: #222;
+    font-weight: 700;
+    letter-spacing: 3px;
+    font-size: 17px;
+    position: relative;
+}
+
+.channel li a:hover,.channel li.this a{
+    /*background-color: #2ea039;*/
+    color: #2ea039;
+    /*width: 140px;*/
+    /*border-bottom:  1px solid #aaa;*/
+    /*margin-left: -10px;*/
+}
+
+.modules dl{
+    border-top: 2px solid #2ea039;
+    background-color: #fff;
+    padding: 15px 20px 20px;
+    margin-bottom: 16px;
+    overflow: hidden;
+}
+.modules dl:hover{
+    box-shadow: 0 0 15px #ddd;
+    /*border-radius: 5px;*/
+}
+.modules dt{
+    color: #222;
+    padding: 0;
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: 700;
+}
+.modules .h24 dd{
+    padding-bottom: 10px;
+    overflow: hidden;
+    clear: both;
+    border-bottom: 1px solid #ccc; 
+    margin-top: 10px; 
+}
+.modules .h24 a img{
+    width: 60px;
+    height: 60px;
+    border-radius: 2px;
+    float: left;
+
+}
+.modules .h24 span{
+    display: block;
+    float: left;
+    padding-left: 10px;
+    width: 230px;
+    overflow: hidden;
+    line-height: 20px;
+}
+.modules .h24 span h3{
+    font-weight: bold;
+}
+
+.modules .hpic dd{
+    width: 48%;
+    overflow: hidden;
+    float: left;
+    padding: 3px 0;
+}
+.modules .hpic dd:nth-child(2n+1){
+    padding-left: 4%; 
+}
+.modules .hpic dd img{
+    width: 100%;
+    height: 96px;
+    border-radius: 5px;
+}
+.modules .hpic dd a h3{
+    font-weight: bold;
+    line-height: 20px;
+    height: 40px;
+    overflow: hidden;
+}
+.modules .like h3{
+    line-height: 32px;
+    font-size: 14px;
+    color: #666;
+    overflow: hidden;
+    height: 32px;
+}
+.modules .like h3:before{
+    content: '·';
+    font-size: 20px;
+    line-height: 32px;
+    font-weight: 900;
+    color: #ddd;
+    padding-right: 10px;
+}
+.content ul{
+    border-bottom: 1px solid #ccc;
+}
+.content li{
+    display: inline-block;
+
+}
+.content li a{
+    font-size: 15px;
+    line-height: 30px;
+    margin:5px;
+    display: block;
+    margin-bottom: -1px; 
+    z-index: 9;
+}
+.content li.this a,.content li a:hover{
+    color: #2ea039;
+    font-weight: 700;
+    border-bottom: 2px solid #2ea039;
+}
+.content dl{
+
+}
+
+.content dl dt{
+    font-size: 18px;
+    line-height: 20px;
+    color: #000;
+    font-weight: 600;
+
+}
+
+.content dl dt:before{
+    content: '';
+    width: 4px;
+    height: 20px;
+    border-radius: 1px;
+    margin-right: 10px;
+    background-color: #2ea039;
+    display: inline-block;
+    vertical-align: sub;
+}
+
+.content dl dd {
+    padding: 10px 0;
+    margin-bottom: 1px;
+    overflow: hidden;
+    clear: both;
+    color: #777;
+    font-size: 14px;
+}
+
+.content dl dd h5{
+    font-size: 21px;
+    line-height: 42px;
+    color: #000;
+    font-weight: 600;
+    padding-bottom: 5px;
+
+}
+
+.content dl dd a em{
+    float: right;
+    font-style: normal;
+    color: #ccc;
+    font-size: 14px;
+} 
+
+.content dl dd  p{
+    font-size: 18px;
+    line-height: 1.5em;
+    color: #333;
+}
+.content dl dd  img {
+    width: 30%;
+}
+
+.content dl dd  img:nth-child(3){
+    padding: 0 5%;
+}
+
+.content dl dd a span{color: #aaa;font-size: 12px;}
+
+.content dl dd a .right{width: 65%;display: block;float: right;}
+
+
+/*文章页面样式表*/
+
+#article{
+    padding-top: 0;
+}
+#article .content,#roll .content{
+    width: 800px;
+    margin:0;
+    padding: 0;
+}
+
+#article .content:hover{
+    box-shadow: 0 0 15px #ddd;
+    border-radius: 10px;
+}
+
+#article .modules dl{
+    background-color: #fff;
+}
+
+.dot{
+    background: url(../images/point.png) repeat-x;
+    height: 1px;
+    display: blcok;
+    width: 100%;
+    margin: 9px 0 12px 0;
+}
+.place,.place a{
+    line-height: 40px;
+    height: 40px;
+    font-size: 14px;
+    color: #555;
+}
+article,section{
+    padding: 30px;
+}
+article h1{
+    font-size: 22px;
+    font-weight: 600;
+}
+
+article .art_content{
+    line-height: 1.8em;
+    font-size: 16px;
+    color: #333;
+    text-indent: 2em;
+}
+
+article .art_content img{
+    display: block;
+    max-width: 80%;
+    margin: 10px auto;
+    border-radius: 8px;
+}
+
+.fl{float: left;}
+
+.av{
+    position: relative;
+/*    width: 290px;
+    height:248px;*/
+    width: 300px;
+    height:250px;
+    float: left;
+    margin: 0 10px;
+    overflow: hidden;
+    }
+
+.h90 div{
+    height: 90px;
+    display: block;
+    overflow: hidden;
+    width: 660px;
+}
+
+#pager{
+    display: block;
+    overflow: hidden;
+    clear: both;
+    background: #fff;
+}
+#pager li{
+    display: block;
+    width: 50%;
+    float: left;
+    overflow: hidden;
+    text-align: center;
+    padding: 10px 0;
+
+}
+#pager span,#pager a{
+    display: inline-block;
+    margin: 0 auto;
+    font-size: 12px;
+    border:1px solid #eee;
+    padding: 10px 25%;
+    border-radius: 60px;
+}
+
+#roll .content ul{
+    border-bottom: 0;
+}
+#roll .content dl{
+    padding: 20px;
+    background: #fff;
+}
+#roll .content dl dd{
+    border-bottom: 1px dotted #ccc;
+}
