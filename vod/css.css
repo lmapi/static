@@ -89,6 +89,9 @@ article dl>dt{padding-left: 12.5px;}
 article dl>dd{background-color: #fff;width: 166.875px}
 article dl>dd>a{height: 100px;border-radius: 5px;}
 
+#pager{display: flex;flex-flow: row;justify-content: center;}
+#pager>li{padding: 7.5px 15px;margin: 0 7.5px;background-color: #fff;}
+
 /*#video>header{box-shadow: none;background-color: rgba(0,0,0,.75);}
 #video nav>ul>li>a{color: #999}
 #vbanner{

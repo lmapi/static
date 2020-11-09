@@ -48,39 +48,33 @@ $.fn.click = function(f) {
     }
 }
 
-$.fn.click = function(f) {
-    //click改为监听事件，
-    if (typeof (f) == "function") {
-        //重载，若含有参数就注册事件，无参数就触发事件
-        this.each(function() {
-            this.addEventListener("click", f);
-        });
-    } else {
-        this.each(function() {
-            var event = document.createEvent('HTMLEvents');
-            event.initEvent("click", true, true);
-            this.dispatchEvent(event);
-        });
-    }
+function s(argument) {
+    res = document.querySelectorAll(argument);
+    if (res.length=1) {return res[0]}else{return res}
 }
 
 
-// let li = document.querySelectorAll('.list li');
-// for (var i = li.length - 1; i >= 0; i--) {
-//     li[i].onmouseover=function () {
-//         console.log('in')
-//         this.children[2].insertAdjacentHTML('afterend','<div id="mk"><i><svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 16 32"><path d="M15.552 15.168q0.448 0.32 0.448 0.832 0 0.448-0.448 0.768l-13.696 8.512q-0.768 0.512-1.312 0.192t-0.544-1.28v-16.448q0-0.96 0.544-1.28t1.312 0.192z"></path></svg></i></div>');
-//     }
-//     li[i].onmouseout=function () {
-//         // document.querySelector('#mk').remove();
-//         // this.children[3].remove()
-//         console.log('out')
-//     }
-//     console.log(li[i]);
-// }
+function searchV() {
+    searchClear();
+    // $('.so>input').bind('input propertychange', e=>{console.log(e)});
+    $('.so>input').on('search',function(){search()});
+    $('p').html(function(k,v){return v.replace(key,'<b>'+key+'</b>')})
+}
+//清除搜索关键字
+function searchClear() { $('[type="search"]').val() ? $('.so>i').show() : $('.so>i').hide();}
+//执行搜索
+function search() {let key = $(".so>input").val();if(key){window.location.href="/search/"+key}}
+
+
+s('input').onsearch=function(){
+    if (this.value) {
+        window.location.href="/search/"+this.value
+    }
+};
+
 
 $('.choice li').click(function(){
-    console.log(this)
+    console.log(this.value)
 });
 
 tabs();
