@@ -955,17 +955,55 @@
             i.logo && (t += '\n    <div class="dplayer-logo">\n        <img src="',
             t += l(i.logo),
             t += '">\n    </div>\n    '),
-      
-            t += '\n       <div class="dplayer-bezel">\n        <span class="dplayer-bezel-icon"></span>\n        ',
+            t += '\n    <div class="dplayer-danmaku"',
+            i.danmaku && i.danmaku.bottm && (t += ' style="margin-bottom:',
+            t += l(i.danmaku.bottm),
+            t += '"'),
+            t += '>\n        <div class="dplayer-danmaku-item dplayer-danmaku-item--demo"></div>\n    </div>\n    <div class="dplayer-subtitle"></div>\n    <div class="dplayer-bezel">\n        <span class="dplayer-bezel-icon"></span>\n        ',
             i.danmaku && (t += '\n        <span class="dplayer-danloading">',
             t += l(s("Danmaku is loading")),
             t += "</span>\n        "),
             t += '\n        <span class="diplayer-loading-icon">',
             t += d.loading,
-            t += '</span>\n    </div>\n</div>\n<div class="dplayer-controller-mask"></div>\n<div class="dplayer-controller">\n ',
-            
-         
-            t += '<div class="dplayer-icons dplayer-icons-left">\n        <button class="dplayer-icon dplayer-play-icon">\n            <span class="dplayer-icon-content">',
+            t += '</span>\n    </div>\n</div>\n<div class="dplayer-controller-mask"></div>\n<div class="dplayer-controller">\n    <div class="dplayer-icons dplayer-comment-box">\n        <button class="dplayer-icon dplayer-comment-setting-icon" data-balloon="',
+            t += l(s("Setting")),
+            t += '" data-balloon-pos="up">\n            <span class="dplayer-icon-content">',
+            t += d.pallette,
+            t += '</span>\n        </button>\n        <div class="dplayer-comment-setting-box">\n            <div class="dplayer-comment-setting-color">\n                <div class="dplayer-comment-setting-title">',
+            t += l(s("Set danmaku color")),
+            t += '</div>\n                <label>\n                    <input type="radio" name="dplayer-danmaku-color-',
+            t += l(p),
+            t += '" value="#fff" checked>\n                    <span style="background: #fff;"></span>\n                </label>\n                <label>\n                    <input type="radio" name="dplayer-danmaku-color-',
+            t += l(p),
+            t += '" value="#e54256">\n                    <span style="background: #e54256"></span>\n                </label>\n                <label>\n                    <input type="radio" name="dplayer-danmaku-color-',
+            t += l(p),
+            t += '" value="#ffe133">\n                    <span style="background: #ffe133"></span>\n                </label>\n                <label>\n                    <input type="radio" name="dplayer-danmaku-color-',
+            t += l(p),
+            t += '" value="#64DD17">\n                    <span style="background: #64DD17"></span>\n                </label>\n                <label>\n                    <input type="radio" name="dplayer-danmaku-color-',
+            t += l(p),
+            t += '" value="#39ccff">\n                    <span style="background: #39ccff"></span>\n                </label>\n                <label>\n                    <input type="radio" name="dplayer-danmaku-color-',
+            t += l(p),
+            t += '" value="#D500F9">\n                    <span style="background: #D500F9"></span>\n                </label>\n            </div>\n            <div class="dplayer-comment-setting-type">\n                <div class="dplayer-comment-setting-title">',
+            t += l(s("Set danmaku type")),
+            t += '</div>\n                <label>\n                    <input type="radio" name="dplayer-danmaku-type-',
+            t += l(p),
+            t += '" value="1">\n                    <span>',
+            t += l(s("Top")),
+            t += '</span>\n                </label>\n                <label>\n                    <input type="radio" name="dplayer-danmaku-type-',
+            t += l(p),
+            t += '" value="0" checked>\n                    <span>',
+            t += l(s("Rolling")),
+            t += '</span>\n                </label>\n                <label>\n                    <input type="radio" name="dplayer-danmaku-type-',
+            t += l(p),
+            t += '" value="2">\n                    <span>',
+            t += l(s("Bottom")),
+            t += '</span>\n                </label>\n            </div>\n        </div>\n        <input class="dplayer-comment-input" type="text" placeholder="',
+            t += l(s("Input danmaku, hit Enter")),
+            t += '" maxlength="30">\n        <button class="dplayer-icon dplayer-send-icon" data-balloon="',
+            t += l(s("Send")),
+            t += '" data-balloon-pos="up">\n            <span class="dplayer-icon-content">',
+            t += d.send,
+            t += '</span>\n        </button>\n    </div>\n    <div class="dplayer-icons dplayer-icons-left">\n        <button class="dplayer-icon dplayer-play-icon">\n            <span class="dplayer-icon-content">',
             t += d.play,
             t += '</span>\n        </button>\n        <div class="dplayer-volume">\n            <button class="dplayer-icon dplayer-volume-icon">\n                <span class="dplayer-icon-content">',
             t += d.volumeDown,
@@ -1004,11 +1042,11 @@
             t += '" data-balloon-pos="up">\n            <span class="dplayer-icon-content">',
             t += d.airplay,
             t += "</span>\n        </div>\n        "),
-            // t += '\n        <div class="dplayer-comment">\n            <button class="dplayer-icon dplayer-comment-icon" data-balloon="',
-            // t += l(s("Send danmaku")),
-            // t += '" data-balloon-pos="up">\n                <span class="dplayer-icon-content">',
-            // t += d.comment,
-            // t += "</span>\n            </button>\n        </div>\n        ",
+            t += '\n        <div class="dplayer-comment">\n            <button class="dplayer-icon dplayer-comment-icon" data-balloon="',
+            t += l(s("Send danmaku")),
+            t += '" data-balloon-pos="up">\n                <span class="dplayer-icon-content">',
+            t += d.comment,
+            t += "</span>\n            </button>\n        </div>\n        ",
             i.subtitle && (t += '\n        <div class="dplayer-subtitle-btn">\n            <button class="dplayer-icon dplayer-subtitle-icon" data-balloon="',
             t += l(s("Hide subtitle")),
             t += '" data-balloon-pos="up">\n                <span class="dplayer-icon-content">',
@@ -1030,15 +1068,15 @@
             t += l(s("Unlimited danmaku")),
             t += '</span>\n                        <div class="dplayer-toggle">\n                            <input class="dplayer-danunlimit-setting-input" type="checkbox" name="dplayer-toggle-danunlimit">\n                            <label for="dplayer-toggle-danunlimit"></label>\n                        </div>\n                    </div>\n                    <div class="dplayer-setting-item dplayer-setting-danmaku">\n                        <span class="dplayer-label">',
             t += l(s("Opacity for danmaku")),
-            t += '</span>\n                                           </div>\n                </div>\n                <div class="dplayer-setting-speed-panel">\n                    ',
-            // c(i.playbackSpeed, (function(e, a) {
-            //     t += '\n                        <div class="dplayer-setting-speed-item" data-speed="',
-            //     t += l(e),
-            //     t += '">\n                            <span class="dplayer-label">',
-            //     t += l(1 === e ? s("Normal") : e),
-            //     t += "</span>\n                        </div>\n                    "
-            // }
-            // )),
+            t += '</span>\n                        <div class="dplayer-danmaku-bar-wrap">\n                            <div class="dplayer-danmaku-bar">\n                                <div class="dplayer-danmaku-bar-inner">\n                                    <span class="dplayer-thumb"></span>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <div class="dplayer-setting-speed-panel">\n                    ',
+            c(i.playbackSpeed, (function(e, a) {
+                t += '\n                        <div class="dplayer-setting-speed-item" data-speed="',
+                t += l(e),
+                t += '">\n                            <span class="dplayer-label">',
+                t += l(1 === e ? s("Normal") : e),
+                t += "</span>\n                        </div>\n                    "
+            }
+            )),
             t += '\n                </div>\n            </div>\n        </div>\n        <div class="dplayer-full">\n            <button class="dplayer-icon dplayer-full-in-icon" data-balloon="',
             t += l(s("Web full screen")),
             t += '" data-balloon-pos="up">\n                <span class="dplayer-icon-content">',
@@ -1051,20 +1089,16 @@
             t += l(i.theme),
             t += '">\n                <span class="dplayer-thumb" style="background: ',
             t += l(i.theme),
-            t += '"></span></div></div></div></div></div> ',
-       
-          
-            // c(i.contextmenu, (function(e, a) {
-            //     t += '\n        <div class="dplayer-menu-item">\n            <a',
-            //     e.link && (t += ' target="_blank"'),
-            //     t += ' href="',
-            //     t += l(e.link || "javascript:void(0);"),
-            //     t += '">',
-            //     t += l(s(e.text)),
-            //     t += "</a>\n        </div>\n    "
-            // }
-            // )),
-            t += '\n<div class="dplayer-notice"></div>\n<button class="dplayer-mobile-play">\n    ',
+            t += '"></span>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="dplayer-info-panel dplayer-info-panel-hide">\n    <div class="dplayer-info-panel-close">[x]</div>\n    <div class="dplayer-info-panel-item dplayer-info-panel-item-version">\n        <span class="dplayer-info-panel-item-title">Player version</span>\n        <span class="dplayer-info-panel-item-data"></span>\n    </div>\n    <div class="dplayer-info-panel-item dplayer-info-panel-item-fps">\n        <span class="dplayer-info-panel-item-title">Player FPS</span>\n        <span class="dplayer-info-panel-item-data"></span>\n    </div>\n    <div class="dplayer-info-panel-item dplayer-info-panel-item-type">\n        <span class="dplayer-info-panel-item-title">Video type</span>\n        <span class="dplayer-info-panel-item-data"></span>\n    </div>\n    <div class="dplayer-info-panel-item dplayer-info-panel-item-url">\n        <span class="dplayer-info-panel-item-title">Video url</span>\n        <span class="dplayer-info-panel-item-data"></span>\n    </div>\n    <div class="dplayer-info-panel-item dplayer-info-panel-item-resolution">\n        <span class="dplayer-info-panel-item-title">Video resolution</span>\n        <span class="dplayer-info-panel-item-data"></span>\n    </div>\n    <div class="dplayer-info-panel-item dplayer-info-panel-item-duration">\n        <span class="dplayer-info-panel-item-title">Video duration</span>\n        <span class="dplayer-info-panel-item-data"></span>\n    </div>\n    ',
+            i.danmaku && (t += '\n    <div class="dplayer-info-panel-item dplayer-info-panel-item-danmaku-id">\n        <span class="dplayer-info-panel-item-title">Danmaku id</span>\n        <span class="dplayer-info-panel-item-data"></span>\n    </div>\n    <div class="dplayer-info-panel-item dplayer-info-panel-item-danmaku-api">\n        <span class="dplayer-info-panel-item-title">Danmaku api</span>\n        <span class="dplayer-info-panel-item-data"></span>\n    </div>\n    <div class="dplayer-info-panel-item dplayer-info-panel-item-danmaku-amount">\n        <span class="dplayer-info-panel-item-title">Danmaku amount</span>\n        <span class="dplayer-info-panel-item-data"></span>\n    </div>\n    '),
+            t += '\n</div>\n<div class="dplayer-menu">\n    ',
+            c(i.contextmenu, (function(e, a) {
+                t += '\n \n           ',
+      
+                t += "      \n    "
+            }
+            )),
+            t += '\n</div>\n<div class="dplayer-notice"></div>\n<button class="dplayer-mobile-play">\n    ',
             t += d.play,
             t += "\n</button>"
         }
@@ -1995,7 +2029,13 @@
                 click: function(e) {
                     e.infoPanel.triggle()
                 }
-            },]),
+            }, {
+                text: "About author",
+                link: "https://diygod.me"
+            }, {
+                text: "DPlayer v".concat("1.26.0"),
+                link: "https://github.com/MoePlayer/DPlayer"
+            }]),
             e
         };
         var c = {
@@ -3912,10 +3952,9 @@
                 this.user = new ie(this),
                 this.container = this.options.container,
                 this.container.classList.add("dplayer"),
-                this.container.classList.add("dplayer-mobile"), //按钮全部横向
-                // this.container.classList.add("dplayer-no-danmaku"),
+                this.options.danmaku || this.container.classList.add("dplayer-no-danmaku"),
                 this.options.live && this.container.classList.add("dplayer-live"),
-                // r.isMobile && this.container.classList.add("dplayer-mobile"),
+                r.isMobile && this.container.classList.add("dplayer-mobile"),
                 this.arrow = this.container.offsetWidth <= 500,
                 this.arrow && this.container.classList.add("dplayer-arrow"),
                 this.template = new K({
@@ -3976,7 +4015,7 @@
                 this.paused = !0,
                 this.timer = new ue(this),
                 this.hotkey = new Se(this),
-                // this.contextmenu = new Le(this),
+                this.contextmenu = new Le(this),
                 this.initVideo(this.video, this.quality && this.quality.type || this.options.video.type),
                 this.infoPanel = new qe(this),
                 !this.danmaku && this.options.autoplay && this.play(),
@@ -4026,7 +4065,6 @@
             }, {
                 key: "pause",
                 value: function(e) {
-                	console.log('暂停');
                     this.paused = !0,
                     this.container.classList.remove("dplayer-loading"),
                     this.video.paused || r.isMobile || this.bezel.switch(X.pause),
@@ -4332,7 +4370,7 @@
             o && Ae(t, o),
             e
         }();
-        console.log("\n".concat(" %c 全看影院", " 1.26.0", " \n"), "color: #fff; background: #080; padding:5px 0;");
+        console.log("\n".concat(" %c 全看影院", "1.26.0", " ").concat("63275c8", " %c http://dplayer.js.org ", "\n", "\n"), "color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;");
         t.default = je
     }
     ]).default
