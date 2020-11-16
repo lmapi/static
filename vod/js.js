@@ -6,11 +6,7 @@ $.fn.init = function(selector, context) {
     var nodeList = [];
     if (typeof (selector) == 'string') {
         nodeList = (context || document).querySelectorAll(selector);
-    } else if (selector instanceof Node) {
-        nodeList[0] = selector;
-    } else if (selector instanceof NodeList || selector instanceof Array) {
-        nodeList = selector;
-    }
+    } 
     this.length = nodeList.length;
     for (var i = 0; i < this.length; i += 1) {
         this[i] = nodeList[i];
@@ -24,35 +20,52 @@ $.fn.each = function(cb_fun, need_ret) {
     for (var i = 0; i < this.length; i++) {
         res[i] = cb_fun.call(this[i]);
     }
-    if (need_ret) {
-        if (res.length == 1) {
-            res = res[0];
-        }
-        return res;
-    }
     return this;
 }
 $.fn.click = function(f) {
-    //click改为监听事件，
     if (typeof (f) == "function") {
-        //重载，若含有参数就注册事件，无参数就触发事件
         this.each(function() {
             this.addEventListener("click", f);
-        });
-    } else {
-        this.each(function() {
-            var event = document.createEvent('HTMLEvents');
-            event.initEvent("click", true, true);
-            this.dispatchEvent(event);
         });
     }
 }
 
 function s(argument) {
-    res = document.querySelectorAll(argument);
-    if (res.length=1) {return res[0]}else{return res}
+    return document.querySelectorAll(argument);
 }
 
+function lu(s) {
+    this.nodeList = document.querySelectorAll(s);
+    this.get = function() {
+        console.log(this.nodeList)
+    };
+    this.each=function(cb_fun){
+        for (var i = 0; i < this.nodeList.length; i++) {
+            cb_fun.call(this.nodeList[i]);
+        }
+        return this;
+    }
+    this.click=function(f){
+        this.each(function() {
+            this.addEventListener("click", f);
+        });
+    }
+}
+
+function ss(sss){
+    return new lu(sss);
+}
+
+ss('[act=more]').click(function(){
+    // console.log(this.getAttribute('act'))
+    if (this.parentElement.classList.value.indexOf('show')!=-1) {
+       this.innerHTML='更多'
+       this.parentElement.classList.remove("show")
+    } else {
+        this.parentElement.classList.add("show")
+        this.innerHTML='收起'
+    }
+})
 
 function searchV() {
     searchClear();
@@ -71,11 +84,22 @@ s('input').onsearch=function(){
         window.location.href="/search/"+this.value
     }
 };
+// s('[act]')
+// console.log($('[act]'))
 
 
-$('.choice li').click(function(){
-    console.log(this.value)
-});
+// console.log($('header'))
+
+// $('[act]').click(function(){
+//     console.log(this.getAttribute('act'))
+//     if (this.parentElement.classList.value.indexOf('choiceshow')!=-1) {
+//        this.innerHTML='更多'
+//        this.parentElement.classList.remove("choiceshow")
+//     } else {
+//         this.parentElement.classList.add("choiceshow")
+//         this.innerHTML='收起'
+//     }
+// });
 
 tabs();
 function tabs(active=false) {
