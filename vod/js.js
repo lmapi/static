@@ -1,47 +1,16 @@
-let $ = function(selector, context) {
-    return new $.fn.init(selector,context);
-};
-$.fn = $.prototype;
-$.fn.init = function(selector, context) {
-    var nodeList = [];
-    if (typeof (selector) == 'string') {
-        nodeList = (context || document).querySelectorAll(selector);
-    } 
-    this.length = nodeList.length;
-    for (var i = 0; i < this.length; i += 1) {
-        this[i] = nodeList[i];
-    }
-    return this;
-}
-;
-$.fn.init.prototype = $.fn;
-$.fn.each = function(cb_fun, need_ret) {
-    var res = [];
-    for (var i = 0; i < this.length; i++) {
-        res[i] = cb_fun.call(this[i]);
-    }
-    return this;
-}
-$.fn.click = function(f) {
-    if (typeof (f) == "function") {
-        this.each(function() {
-            this.addEventListener("click", f);
-        });
-    }
-}
-
-function s(argument) {
-    return document.querySelectorAll(argument);
-}
-
 function lu(s) {
     this.nodeList = document.querySelectorAll(s);
-    this.get = function() {
-        console.log(this.nodeList)
+    this.get = function(e=false) {
+        if (e) {return this.nodeList;}
+        if (this.nodeList.length==1) {
+            return this.nodeList[0];
+        } else {
+            return this.nodeList;
+        }
     };
-    this.each=function(cb_fun){
+    this.each=function(f){
         for (var i = 0; i < this.nodeList.length; i++) {
-            cb_fun.call(this.nodeList[i]);
+            f.call(this.nodeList[i]);
         }
         return this;
     }
@@ -50,60 +19,59 @@ function lu(s) {
             this.addEventListener("click", f);
         });
     }
+    // this.on=function(e){
+    //     this.each(function() {
+    //         this.on+e;
+    //     });
+    // }
 }
-
 function ss(sss){
     return new lu(sss);
 }
 
-ss('[act=more]').click(function(){
-    // console.log(this.getAttribute('act'))
-    if (this.parentElement.classList.value.indexOf('show')!=-1) {
-       this.innerHTML='更多'
-       this.parentElement.classList.remove("show")
-    } else {
-        this.parentElement.classList.add("show")
-        this.innerHTML='收起'
+ss('[act]').click(function(){
+    console.log(this.getAttribute('act'))
+    switch(this.getAttribute('act')){
+        case 'more':
+        if (this.parentElement.classList.value.indexOf('show')!=-1) {
+           this.innerHTML='更多'
+           this.parentElement.classList.remove("show")
+        } else {
+            this.parentElement.classList.add("show")
+            this.innerHTML='收起'
+        }
+        break;
+        case 'menu':
+        break;
+        case 'search':
+            window.location.href="/search/";
+        break;
+
     }
 })
 
 function searchV() {
     searchClear();
     // $('.so>input').bind('input propertychange', e=>{console.log(e)});
-    $('.so>input').on('search',function(){search()});
+    $('nav>input').on('search',function(){search()});
     $('p').html(function(k,v){return v.replace(key,'<b>'+key+'</b>')})
 }
 //清除搜索关键字
 function searchClear() { $('[type="search"]').val() ? $('.so>i').show() : $('.so>i').hide();}
 //执行搜索
-function search() {let key = $(".so>input").val();if(key){window.location.href="/search/"+key}}
+function search() {let key = $("nav>input").val();if(key){window.location.href="/search/"+key}}
 
 
-s('input').onsearch=function(){
+ss('input').get().onsearch=function(){
     if (this.value) {
         window.location.href="/search/"+this.value
     }
 };
-// s('[act]')
-// console.log($('[act]'))
 
-
-// console.log($('header'))
-
-// $('[act]').click(function(){
-//     console.log(this.getAttribute('act'))
-//     if (this.parentElement.classList.value.indexOf('choiceshow')!=-1) {
-//        this.innerHTML='更多'
-//        this.parentElement.classList.remove("choiceshow")
-//     } else {
-//         this.parentElement.classList.add("choiceshow")
-//         this.innerHTML='收起'
-//     }
-// });
 
 tabs();
 function tabs(active=false) {
-    let tabs = $('.tabs');
+    let tabs = ss('.tabs').get(true)
     if (tabs.length==0) {return 0;}
     for (var i = tabs.length - 1; i >= 0; i--) {
         let t = tabs[i].children[1].children;
