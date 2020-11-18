@@ -70,6 +70,39 @@ ss('input').get().onsearch=function(){
 
 
 tabs();
+
+
+function slider(e="slider", t=800) {
+    let o, n = 0, r = 0, i = "", s = document.querySelectorAll("#" + e + ">*"), a = document.createElement("ul");
+    a.id = "li",
+    document.getElementById(e).appendChild(a);
+    for (var c = 0; c < s.length; c++)
+        i += "<li></li>";
+    document.getElementById("li").innerHTML = i;
+    let u = document.querySelectorAll("#" + e + ">ul>*");
+    function l(e) {
+        e >= 0 ? r = e : 0 == n ? r++ : (r--,
+        n = 0),
+        r >= u.length && (r = 0),
+        r < 0 && (r = u.length - 1);
+        for (var t = 0; t < u.length; t++)
+            u[t].className = "",
+            s[t].className = "";
+        u[r].className = "on",
+        s[r].className = "curr"
+    }
+    s[r].className = "curr",
+    u[r].className = "on";
+    for (c = 0; c < u.length; c++)
+        u[c].index = c,
+        u[c].onclick = function() {
+            o = this.index,
+            l(o)
+        }
+        ;
+    timer = setInterval(l, t)
+} 
+
 function tabs(active=false) {
     let tabs = ss('.tabs').get(true)
     if (tabs.length==0) {return 0;}
