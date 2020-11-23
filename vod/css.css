@@ -12,7 +12,7 @@ input::-webkit-input-placeholder { color: #ccc; }
 :focus { outline: none; }
 ::-webkit-search-cancel-button { display: none; }
 ::-webkit-scrollbar {display: none;}
-header{box-shadow:0 28px 50px rgba(25,24,40,.35);top: 0;left: 0;background-color:#fff;position: fixed;width: 100%;z-index: 9 }
+header{box-shadow:0 20px 50px rgba(0,0,0,.25);top: 0;left: 0;background-color:#fff;position: fixed;width: 100%;z-index: 9 }
 nav{padding: 0 1%;justify-content: space-between;height: 60px;display: flex;flex-flow: row;align-items: center;}
 nav img{height: 40px;}
 /*nav i,nav h1{display: none;}*/
@@ -24,24 +24,23 @@ nav>ul>li>a{color: #000}
 nav>ul>li.curr>a{color: #f80}
 
 
-#slider{position: relative;overflow: hidden;}
-#slider img{width: 100%;}
-#slider>a{ list-style: none; float: left; text-align: center; display: none;}
-#slider>.curr{display: block;}
-#slider>#li{position: absolute;left: 50%;bottom: 15px;margin-left: -35px;}
+#slider{position: relative;width: 100%;margin-bottom: 1%;}
+#slider>a{background-position: center center;
+    background-size: cover;  display: none;}
+#slider>.curr{display: block;width: 100%;padding-top: 40%;}
+#slider>#li{position: absolute;left: 50%;transform: translate(-50%, 0);bottom:5%;}
 #slider>#li>li{list-style: none; width: 10px;height: 10px; background-color: #ccc; border-radius: 50%; margin-right: 5px; float: left; cursor: pointer;}
 #slider>#li>.on{ background-color: #f50;}
-
 
 #home{display: flex;flex-flow: row wrap;justify-content: space-between;}
 #home>dl{width: 75%;}
 
-.choice{width:100%;position: relative;align-items: center;background-color: #fff;display: flex;flex-flow: row wrap;padding: 1% 1% 0;font-size: 14px;}
-.choice *{padding:.25% .75%;}
+.choice{width:100%;position: relative;align-items: center;background-color: #fff;display: flex;flex-flow: row wrap;padding: 10px 10px 0;font-size: 14px;}
+.choice *{padding:2.5px 7.5px;}
 .choice a.curr{opacity: .8;background: #258dcd;color: #fff;border-radius: 2.5px;}
 .choice i{display: none;}
 
-dl{width: 100%;display: flex;flex-flow: row wrap;padding: .5%;margin-bottom:1%;background-color: #fff }
+dl{width: 100%;display: flex;flex-flow: row wrap;padding: 5px;margin-bottom:1%;background-color: #fff }
 dl>dt{width: 100%;padding: .5%;}
 dl>dd{position: relative;width: 20%;padding: .5%;overflow: hidden;display: flex;flex-flow:row wrap;}
 dl>dd>a{width: 100%;padding-top: 140%;display: block;background-size: 100% ;background-position: center center;position: relative;}
@@ -73,7 +72,7 @@ figure{width: 100%;height: 562.5px;margin: 1% 0;background-color: #000}
 article h2{color: #333}
 section dl>dd{width: 25%}
 section dl>dd>a{padding-top:   60%}
-.info {display: flex;flex-flow: row wrap;background-color: #fff; padding:  12.5px;margin-bottom: 12.5px;}
+.info {width: 100%;display: flex;flex-flow: row wrap;background-color: #fff; padding:  12.5px;margin-bottom: 12.5px;}
 .info h1{margin-bottom: 10px;color: #333}
 .info h1>em{color: #072;float: right;font-weight: 100;font-size: 14px;}
 .info ul{flex: 1;font-size: 14px;}
@@ -91,7 +90,7 @@ section dl>dd>a{padding-top:   60%}
 .info i{background-color: #eee;display: block;color: #072;position: absolute;right: 1em;bottom:0em;}
 .tabs{padding:5px;margin-bottom: 12.5px;background-color: #fff}
 .tabs>h2,.tabs>.tab{padding: 7.5px;}
-.tabs .tab{display: flex;padding-top: 12.5px}
+.tabs .tab{display: flex;}
 .tabs .tab li{margin-right: 12.5px;display: flex;align-items: center;}
 .tabs .tab li>img{width: 17px;height: 17px;margin-right: 3px;}
 .tabs>.tab>li.active{color: #f80;}
@@ -124,25 +123,19 @@ section dl>dd>a{padding-top:   60%}
    #home dl>dd{width: 33.33%;}
    #home dl>dd:nth-child(10){display: unset;}
    figure{height: 284.0625px;}
-   .choice{height: 35px;line-height: 35px;overflow: hidden;padding-right: 30px;}
+   .choice{height: 35px;overflow: hidden;padding-right: 30px;}
    .show{height: auto;padding-right:12.5px }
    .choice i{background-color: #fff;display: block;cursor: pointer;position: absolute;right: 0}
    .show i{position: unset;right: unset;}
 }
 
 @media screen and (max-width: 505px) {
-   main,nav{width:100%; }
-/*    nav>ul{
-        position: fixed;
-        top: 50px;
-        background: #fff;
-        right: 0;
-        left: 0;
-        display: flex;
-        justify-content: space-around;
-    }*/
-   
- 
+    main,nav{width:100%; }
+    main{padding-top: 10px;}
+    dl{margin-bottom: 10px;padding: 5px;}
+    #slider{margin-bottom: 0;margin-top: -10px;}
+    figure{height: 56.25vw;}
+    nav>ul>li{padding: 5.5px;}
     dl>dd{width: 33.33%;}
     nav i,nav h1{display: unset;}
     nav>input{display: none;}
@@ -151,9 +144,6 @@ section dl>dd>a{padding-top:   60%}
     .info ul li{margin-bottom: unset;}
     .info ul li:nth-child(8){display: none;}
     .info .desc{height: 8em}
-
-    figure{height: 56.25vw;}
-
 }
 
 /*选项卡*/
