@@ -1,11 +1,21 @@
+//cookie
+!function(e){var n;if("function"==typeof define&&define.amd&&(define(e),n=!0),"object"==typeof exports&&(module.exports=e(),n=!0),!n){var t=window.Cookies,o=window.Cookies=e();o.noConflict=function(){return window.Cookies=t,o}}}(function(){function f(){for(var e=0,n={};e<arguments.length;e++){var t=arguments[e];for(var o in t)n[o]=t[o]}return n}function a(e){return e.replace(/(%[0-9A-Z]{2})+/g,decodeURIComponent)}return function e(u){function c(){}function t(e,n,t){if("undefined"!=typeof document){"number"==typeof(t=f({path:"/"},c.defaults,t)).expires&&(t.expires=new Date(1*new Date+864e5*t.expires)),t.expires=t.expires?t.expires.toUTCString():"";try{var o=JSON.stringify(n);/^[\{\[]/.test(o)&&(n=o)}catch(e){}n=u.write?u.write(n,e):encodeURIComponent(String(n)).replace(/%(23|24|26|2B|3A|3C|3E|3D|2F|3F|40|5B|5D|5E|60|7B|7D|7C)/g,decodeURIComponent),e=encodeURIComponent(String(e)).replace(/%(23|24|26|2B|5E|60|7C)/g,decodeURIComponent).replace(/[\(\)]/g,escape);var r="";for(var i in t)t[i]&&(r+="; "+i,!0!==t[i]&&(r+="="+t[i].split(";")[0]));return document.cookie=e+"="+n+r}}function n(e,n){if("undefined"!=typeof document){for(var t={},o=document.cookie?document.cookie.split("; "):[],r=0;r<o.length;r++){var i=o[r].split("="),c=i.slice(1).join("=");n||'"'!==c.charAt(0)||(c=c.slice(1,-1));try{var f=a(i[0]);if(c=(u.read||u)(c,f)||a(c),n)try{c=JSON.parse(c)}catch(e){}if(t[f]=c,e===f)break}catch(e){}}return e?t[e]:t}}return c.set=t,c.get=function(e){return n(e,!1)},c.getJSON=function(e){return n(e,!0)},c.remove=function(e,n){t(e,"",f(n,{expires:-1}))},c.defaults={},c.withConverter=e,c}(function(){})});
+
 function lu(s) {
     this.nodeList = document.querySelectorAll(s);
     this.get = function(e=false) {
-        if (e) {return this.nodeList;}
-        if (this.nodeList.length==1) {
-            return this.nodeList[0];
+        if (e===false) {
+            if (this.nodeList.length==1) {
+                return this.nodeList[0];
+            } else {
+                return this.nodeList;
+            }
         } else {
-            return this.nodeList;
+            if (e===true) {
+                return this.nodeList;
+            } else {
+                return this.nodeList[e];
+            }
         }
     };
     this.each=function(f){
@@ -19,16 +29,46 @@ function lu(s) {
             this.addEventListener("click", f);
         });
     }
-    // this.on=function(e){
-    //     this.each(function() {
-    //         this.on+e;
-    //     });
-    // }
 }
 function ss(sss){
     return new lu(sss);
 }
 
+function post(url, data, call) {
+    let opt = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: Object.entries(data).map(([key,value])=>`${key}=${value}`).join('&')
+    }
+    fetch(url, opt).then(response=>response.text()).then(ret=>{
+        try {
+            let tmp = JSON.parse(ret)
+            call(tmp);
+        } catch (err) {
+            call(ret);
+        }
+
+    }
+    ).catch(e=>console.log(e))
+}
+
+function msg(v,code=200) {
+    let html = document.createElement('q');
+        html.innerHTML=v;
+    if (code!=200) {html.classList.add('err');}
+    document.body.appendChild(html)
+    setTimeout(function(){html.remove()},2000);
+}
+
+
+// ------------------------上面是公用方法------------------------------
+
+var mhost = location.host.substr(location.host.indexOf('.')+1),
+    api='//json.'+mhost+'/';
+console.log(api)
+console.log(mhost)
 ss('[act]').click(function(){
     console.log(this.getAttribute('act'))
     switch(this.getAttribute('act')){
@@ -43,10 +83,39 @@ ss('[act]').click(function(){
         break;
         case 'menu':
         break;
+        case 'user':
+            let user = (u=Cookies.get('user'))?JSON.parse(u):false;
+            if (user) {
+                console.log(user);
+                location.href='/user';
+                break;
+            }
+            let dialog = document.createElement('dialog');
+                dialog.classList.add('tabs')
+                dialog.innerHTML='<h2>×</h2><ul class="tab"><li class="active">登陆</li><li>注册</li></ul><ul class="content"><li class="active"><input type="text"name="phone"placeholder="手机号"><input type="password"name="password"placeholder="密码"><button type="button"data-act="login">登陆</button></li><li><input type="text"name="phone"placeholder="手机号"><input type="password"name="password"placeholder="密码"><button type="button"data-act="register">注册</button></li></ul>';
+            document.body.appendChild(dialog)
+            tabs();
+            ss('dialog>h2').click(function(){
+                this.parentNode.remove()
+            });
+            ss('dialog button').click(function(){
+                let t = this.parentNode.children;
+                let data={'phone':t.phone.value,'password':t.password.value}
+            console.log(api+this.dataset['act'])
+            post(api+this.dataset['act'],data,function(e) {
+                console.log(e)
+                msg(e.msg);
+                if (e.data) {
+                    Cookies.set('user', e.data,{expires:30});
+                    dialog.remove()
+                }
+
+            })
+            });
+        break;
         case 'search':
             window.location.href="/search/";
         break;
-
     }
 })
 
