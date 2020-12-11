@@ -188,16 +188,12 @@ dialog{
     background-color: #fff;
     padding: 10px 0 0; 
 }
-dialog h2{display: inline-block;
-    margin: 0;
-    color: rgb(153, 153, 153);
+dialog em{display: inline-block;
     font-size: 20px;
     cursor: pointer;
     position: absolute;
     top: 5%;
-    right: 5%;
-    user-select: none;
-    font-weight: 100;padding: 0}
+    right: 5%;}
 dialog button{color: #fff;
     line-height: 45px;
     width: 50%;

@@ -53,7 +53,48 @@ function post(url, data, call) {
     }
     ).catch(e=>console.log(e))
 }
-
+function html(t,h='',c=null) {
+    let html = document.createElement(t);
+    if (c) {html.classList.add(c);}
+    html.innerHTML=h;
+    document.body.appendChild(html);
+    return html;
+}
+function video(data=[],call=false) {
+let source={'ky':'酷云','zd':'最大','ok':'OK','youku':'优酷','iqiyi':'奇艺','qq':'腾讯','miguvideo':'咪咕','cctv6':'央视','bilibili':'哔哩'},
+    url=false,
+    play=location.href.match(/\d+/g),
+    html = '<div class="tabs"><h2>播放列表</h2><ul class="tab">';
+    for (var i = 0; i <=data.source.length - 1; i++) {
+        if (play[1]==i||(i==0&&!play[1])) {
+            html+='<li class="active"><img src="/vod/'+data.source[i]+'.png">'+source[data.source[i]]+'</li>';
+        }else{
+            html+='<li><img src="/vod/'+data.source[i]+'.png">'+source[data.source[i]]+'</li>';
+        }
+    }
+    html+='</ul><ul class="content">';
+    for (var i = 0; i <= data.playlist.length - 1; i++) {
+        let j=data.playlist[i].split('#');
+        (i==0&&!play[1])||(play[1]==i)?html+='<li class="active">':html+='<li>'
+        for (var n = 0; n <= j.length - 1; n++) {
+            let c=j[n].split('$');
+            if ((play[1]==i &&play[2]==n)) {
+                html+='<a class="active" href="/phtlay/'+d.id+'-'+i+'-'+n+'.html">'+c[0]+'</a>';
+                url = c[1];
+                continue;
+            }
+            if (!play && n==0) {
+                html+='<a class="active" href="/phtlay/'+d.id+'-'+i+'-'+n+'.html">'+c[0]+'</a>';
+                continue;
+            }
+            html+='<a  href="/play/'+d.id+'-'+i+'-'+n+'.html">'+c[0]+'</a>'; 
+        }
+        html+='</li>';
+    }
+    html+='</ul></div>';
+    ss('section').get().insertAdjacentHTML('afterbegin', html);
+    return url;
+}
 function msg(v,code=200) {
     let html = document.createElement('q');
         html.innerHTML=v;
@@ -90,26 +131,26 @@ ss('[act]').click(function(){
                 location.href='/user';
                 break;
             }
-            let dialog = document.createElement('dialog');
-                dialog.classList.add('tabs')
-                dialog.innerHTML='<h2>×</h2><ul class="tab"><li class="active">登陆</li><li>注册</li></ul><ul class="content"><li class="active"><input type="text"name="phone"placeholder="手机号"><input type="password"name="password"placeholder="密码"><button type="button"data-act="login">登陆</button></li><li><input type="text"name="phone"placeholder="手机号"><input type="password"name="password"placeholder="密码"><button type="button"data-act="register">注册</button></li></ul>';
-            document.body.appendChild(dialog)
+            let dialog = html('dialog','<em>×</em><ul class="tab"><li class="active">登陆</li><li>注册</li></ul><ul class="content"><li class="active"><input type="text"name="user"placeholder="用户名"><input type="password"name="password"placeholder="密码"><button type="button"data-act="login">登陆</button></li><li><input type="text"name="user"placeholder="用户名"><input type="password"name="password"placeholder="密码"><button type="button"data-act="register">注册</button></li></ul>','tabs');
+            // let dialog = document.createElement('dialog');
+            //     dialog.classList.add('tabs')
+            //     dialog.innerHTML='<em>×</em><ul class="tab"><li class="active">登陆</li><li>注册</li></ul><ul class="content"><li class="active"><input type="text"name="user"placeholder="用户名"><input type="password"name="password"placeholder="密码"><button type="button"data-act="login">登陆</button></li><li><input type="text"name="user"placeholder="用户名"><input type="password"name="password"placeholder="密码"><button type="button"data-act="register">注册</button></li></ul>';
+            // document.body.appendChild(dialog)
             tabs();
-            ss('dialog>h2').click(function(){
+            ss('dialog>em').click(function(){
                 this.parentNode.remove()
             });
             ss('dialog button').click(function(){
                 let t = this.parentNode.children;
-                let data={'phone':t.phone.value,'password':t.password.value}
+                let data={'user':t.user.value,'password':t.password.value}
             console.log(api+this.dataset['act'])
             post(api+this.dataset['act'],data,function(e) {
                 console.log(e)
-                msg(e.msg);
-                if (e.data) {
+                msg(e.msg,e.code);
+                if (e.code==200) {
                     Cookies.set('user', e.data,{expires:30});
-                    dialog.remove()
+                    setTimeout(()=>{dialog.remove();},2000)
                 }
-
             })
             });
         break;
@@ -121,7 +162,6 @@ ss('[act]').click(function(){
 
 function searchV() {
     searchClear();
-    // $('.so>input').bind('input propertychange', e=>{console.log(e)});
     $('nav>input').on('search',function(){search()});
     $('p').html(function(k,v){return v.replace(key,'<b>'+key+'</b>')})
 }

@@ -1,0 +1,53 @@
+html{position: relative;height: 100%;}
+#e{display: flex;flex-flow: row;height: 100%;}
+iframe{flex: 1;padding: 1vw;overflow: hidden;}
+.layui-layer-content>iframe{padding: 0}
+nav{flex-shrink:0; overflow-x: hidden;overflow-y: scroll; width: 150px;background: #1c2b36;}
+::-webkit-scrollbar {display: none;}
+nav dl{}
+nav dl dd.show{display: block;}
+nav dl dt{border-bottom: 1px solid #17232c;z-index:3}
+nav dl dt i{float: right;padding-right: 18px;}
+nav dl dd{display: none;background: #131e25;}
+nav dl dd:hover{background: #007766;}
+nav dl dd.this{background: #009966;}
+nav dl dt.this .layui-icon-triangle-r:before {
+    content: "\e625";
+}
+nav span,nav p,nav a{padding-left: 24px; display: block;height: 40px;line-height: 40px;cursor: pointer;color:#8dacc4;}
+nav dd:hover p,nav dd:hover a,nav dd.this p,nav dd.this a {color:#fff;}
+
+#hello{text-align: center;position: absolute;bottom: 0;width: 100%}
+
+/*Layui样式表重构*/
+/*调整弹窗表单样式*/
+.fm{padding: 0 5px;text-align: center;}
+.fm input,.fm select,.fm textarea,.fm span{margin: 5px auto;}
+.fm span{display: block; border:1px solid #e6e6e6;border-radius: 2px;height: 38px;text-align: left;}
+.fm span em{height: 38px;line-height: 38px;padding: 0 10px;font-style: inherit;color:#777;}
+.fm span .layui-form-radio{margin: 0;}
+
+.fm .edit{position: relative;border-top: 1px solid #e2e2e2;}
+.fm .edit b{color: #666; position: absolute;display: block;text-align: center; background: #f5f5f5; top: 0;left: 0;width: 100px;line-height: 38px;font-weight: normal;}
+.fm .edit input{padding-left: 110px;border:0;background: #fff;margin: 0 0 5px 0;color: #777}
+
+
+/*调整table的边距为0*/
+.layui-table, .layui-table-view{margin: 0}
+.layui-table-cell{padding: 0;text-align: center;}
+.layui-table[lay-size=sm] .layui-form-switch{height: 20px;line-height: 20px;border: 0}
+.layui-table[lay-size=sm] .layui-form-switch i{height: 14px;width: 14px;}
+.layui-input, .layui-select, .layui-textarea{height: 30px;}
+.layui-table tr{color: green}
+.layui-table-tool{position: fixed;top: 0;}
+.layui-table-box{margin-top: 50px;margin-bottom: 41px;}
+.layui-table-page{position: fixed;
+    bottom: 0;
+    background: #fff;
+    z-index: 999;}
+/*搜索框样式表修正*/
+.so{position: fixed;top:10px;right: 5px;z-index: 9999999;display: flex;}
+.so .layui-input{width: 100px;}
+/*.so .layui-form-select{width: 100px;float: left;}
+.so .layui-input,.so .layui-select,.so .layui-textarea{height: 30px;}
+*/
