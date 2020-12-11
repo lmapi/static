@@ -52,7 +52,8 @@ article .more{position: absolute;
 blockquote{
     margin: 0;
     position: fixed;
-    left: 0;
+    max-width: 750px;
+    /*left: 0;*/
     top: 1rem;
     z-index: 9;
     display: none;
