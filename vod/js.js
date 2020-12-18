@@ -181,7 +181,7 @@ ss('input').get().onsearch=function(){
 tabs();
 
 
-function slider(e="slider", t=800) {
+function swiper(e="swiper", t=800) {
     let o, n = 0, r = 0, i = "", s = document.querySelectorAll("#" + e + ">*"), a = document.createElement("ul");
     a.id = "li",
     document.getElementById(e).appendChild(a);

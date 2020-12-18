@@ -24,13 +24,13 @@ nav>ul>li>a{color: #000}
 nav>ul>li.curr>a{color: #f80}
 
 
-#slider{position: relative;width: 100%;margin-bottom: 1%;}
-#slider>a{background-position: center center;
+#swiper{position: relative;width: 100%;margin-bottom: 1%;}
+#swiper>a{background-position: center center;
     background-size: cover;  display: none;}
-#slider>.curr{display: block;width: 100%;padding-top: 40%;}
-#slider>#li{position: absolute;left: 50%;transform: translate(-50%, 0);bottom:5%;}
-#slider>#li>li{list-style: none; width: 10px;height: 10px; background-color: #ccc; border-radius: 50%; margin-right: 5px; float: left; cursor: pointer;}
-#slider>#li>.on{ background-color: #f50;}
+#swiper>.curr{display: block;width: 100%;padding-top: 40%;}
+#swiper>#li{position: absolute;left: 50%;transform: translate(-50%, 0);bottom:5%;}
+#swiper>#li>li{list-style: none; width: 10px;height: 10px; background-color: #ccc; border-radius: 50%; margin-right: 5px; float: left; cursor: pointer;}
+#swiper>#li>.on{ background-color: #f50;}
 
 #home{display: flex;flex-flow: row wrap;justify-content: space-between;}
 #home>dl{width: 75%;}
