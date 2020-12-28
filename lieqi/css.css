@@ -1,5 +1,5 @@
 nav{color: #F00}
-main iframe{width: 100vw;max-height: 120px;}
+/*main iframe{width: 100vw;max-height: 120px;}*/
 #home{padding-top:1.75rem;}
 .list{overflow:hidden;padding:.1rem 0;background:#eee}
 .list>li>a,.list>li>iframe{position: relative;z-index: 1;padding:.1rem;display:flex;flex-flow: row wrap;justify-content: space-between;margin-bottom:.1rem;background:#fff;}
@@ -68,3 +68,4 @@ blockquote.show{display: flex;}
 blockquote>a{
     padding: .15rem;
 }
+.al{text-indent: 0}
