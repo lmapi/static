@@ -30,6 +30,7 @@ function lu(s) {
         });
     }
 }
+
 function ss(sss){
     return new lu(sss);
 }
@@ -124,6 +125,29 @@ ss('[act]').click(function(){
         break;
         case 'menu':
         break;
+        case 'register':
+            let lay = html('dialog','<em>×</em><ul class="content"><li class="active"><input type="text"name="user"placeholder="用户名"><input type="password"name="password"placeholder="密码"><button type="button"data-act="login">注册</button></li></ul>','tabs');
+            ss('dialog>em').click(function(){
+                this.parentNode.remove()
+            });
+            ss('dialog button').click(function(){
+                let t = this.parentNode.children;
+                let data={'user':t.user.value,'password':t.password.value}
+            console.log(api+'register')
+            post(api+'register',data,function(e) {
+                console.log(e)
+                msg(e.msg,e.code);
+                if (e.code==200) {
+                    console.log(e)
+                    msg('注册成功，开始下载',200);
+                    window.open("http://106.53.77.222/kan.apk")
+                    // http://106.53.77.222/kan.apk
+                    // Cookies.set('user', e.data,{expires:30});
+                    setTimeout(()=>{lay.remove();},2000)
+                }
+            })
+            });
+        break;
         case 'user':
             let user = (u=Cookies.get('user'))?JSON.parse(u):false;
             if (user) {
@@ -132,6 +156,7 @@ ss('[act]').click(function(){
                 break;
             }
             let dialog = html('dialog','<em>×</em><ul class="tab"><li class="active">登陆</li><li>注册</li></ul><ul class="content"><li class="active"><input type="text"name="user"placeholder="用户名"><input type="password"name="password"placeholder="密码"><button type="button"data-act="login">登陆</button></li><li><input type="text"name="user"placeholder="用户名"><input type="password"name="password"placeholder="密码"><button type="button"data-act="register">注册</button></li></ul>','tabs');
+            
             // let dialog = document.createElement('dialog');
             //     dialog.classList.add('tabs')
             //     dialog.innerHTML='<em>×</em><ul class="tab"><li class="active">登陆</li><li>注册</li></ul><ul class="content"><li class="active"><input type="text"name="user"placeholder="用户名"><input type="password"name="password"placeholder="密码"><button type="button"data-act="login">登陆</button></li><li><input type="text"name="user"placeholder="用户名"><input type="password"name="password"placeholder="密码"><button type="button"data-act="register">注册</button></li></ul>';
