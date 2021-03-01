@@ -108,7 +108,7 @@ function msg(v,code=200) {
 // ------------------------上面是公用方法------------------------------
 
 var mhost = location.host.substr(location.host.indexOf('.')+1),
-    api='//json.'+mhost+'/';
+    api='//open.'+mhost+'/';
 console.log(api)
 console.log(mhost)
 ss('[act]').click(function(){
